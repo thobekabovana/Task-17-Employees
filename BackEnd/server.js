@@ -1,19 +1,25 @@
 // Import Firebase Admin SDK and Express
 const express = require('express');
-const admin = require('./firebase-require'); // Adjust this path to your Firebase setup file
-const db = admin.firestore(); // Firestore instance
+const admin = require('./firebase-require');  // Ensure this initializes Firebase Admin SDK correctly
+const db = admin.firestore();  // Initialize Firestore
 const cors = require('cors');
 
+// Initialize Express app
 const app = express();
 app.use(express.json()); // Middleware to parse JSON requests
-
 app.use(cors());
 
 // Firestore collection reference for employees
 const employeesRef = db.collection('employees');
 
-// Define CRUD routes
+// Define router
 const router = express.Router();
+
+// Welcome route - Displays "Welcome to SA"
+router.get('/', (req, res) => {
+  console.log("Welcome to SA");
+  res.send("Welcome to SA"); 
+});
 
 // POST /employees - Add a new employee
 router.post('/employees', async (req, res) => {
@@ -73,6 +79,7 @@ router.delete('/employees/:id', async (req, res) => {
 
 // Use the router for /api routes
 app.use('/api', router);
+app.use('/', router); // Ensure this is placed after your routes definition
 
 // Start the server
 const PORT = process.env.PORT || 3000;
