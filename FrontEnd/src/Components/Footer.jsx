@@ -23,7 +23,7 @@ const Footer = () => {
 
       <div className="mt-10 border-t border-pink-300 pt-6 flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0 max-w-6xl mx-auto">
         <form className="flex flex-wrap justify-center items-center gap-2">
-          <label htmlFor="email" className="text-sm text-pink-500">Subscribe for Minaty.com Emails</label>
+          <label htmlFor="email" className="text-sm text-pink-500">Subscribe to Employee Updates</label>
           <input
             type="email"
             id="email"
@@ -36,9 +36,9 @@ const Footer = () => {
         </form>
 
         <select className="px-4 py-2 rounded-md bg-pink-500 text-white">
-          <option value="US">South Africa</option>
-          <option value="CA">Botswana</option>
-          <option value="FR">France</option>
+          <option value="US">English</option>
+          <option value="FR">French</option>
+          <option value="ES">Spanish</option>
         </select>
 
         <div className="flex space-x-4">
@@ -51,8 +51,8 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-gray-800 text-sm mt-6">
-        <p>© 2024 Minaty.com SA, Inc. All rights reserved. Terms of Use | Privacy Policy</p>
-        <p>958 - 0860 Alungile SA (0769580860)</p>
+        <p>© 2024 Employee Resources Inc. All rights reserved. Terms of Use | Privacy Policy</p>
+        <p>Contact: HR Hotline (123-456-7890)</p>
       </div>
     </footer>
   );
@@ -61,49 +61,45 @@ const Footer = () => {
 // Footer section data
 const footerSections = [
   {
-    title: "About Minaty.com",
+    title: "Employee Resources",
     links: [
-      { label: "About Minaty.com", href: "#" },
-      { label: "Newsroom", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Supply Chain Transparency", href: "#" },
-      { label: "Affiliates", href: "#" },
-      { label: "Minaty Global Sites", href: "#" }
+      { label: "Employee Portal", href: "#" },
+      { label: "Benefits", href: "#" },
+      { label: "Career Development", href: "#" },
+      { label: "Training Programs", href: "#" },
+      { label: "Employee Discounts", href: "#" }
     ]
   },
   {
-    title: "Minaty.com",
+    title: "Support",
     links: [
-      { label: "My Account", href: "#" },
-      { label: "Booking Status", href: "#" },
-      { label: "Beauty Insider", href: "#" },
-      { label: "Flash Subscription", href: "#" },
-      { label: "Gift Cards", href: "#" }
+      { label: "Help Center", href: "#" },
+      { label: "FAQs", href: "#" },
+      { label: "Contact HR", href: "#" },
+      { label: "Policies", href: "#" }
     ]
   },
   {
-    title: "Help & FAQs",
+    title: "Community",
     links: [
-      { label: "Online Booking", href: "#" },
-      { label: "Cancellation", href: "#" },
-      { label: "Refunds", href: "#" },
-      { label: "Contact Us", href: "#" },
-      { label: "Reservations", href: "#" }
+      { label: "Employee Stories", href: "#" },
+      { label: "Events", href: "#" },
+      { label: "Volunteer Opportunities", href: "#" },
+      { label: "Recognition Programs", href: "#" }
     ]
   },
   {
-    title: "Ways to Book",
+    title: "Learning & Growth",
     links: [
-      { label: "Just Booked", href: "#" },
-      { label: "Best Rooms", href: "#" },
-      { label: "Weekly Specials", href: "#" },
-      { label: "Minaty Vouchers", href: "#" },
-      { label: "Gift Cards", href: "#" }
+      { label: "Workshops", href: "#" },
+      { label: "Mentorship", href: "#" },
+      { label: "Leadership Development", href: "#" },
+      { label: "Online Courses", href: "#" }
     ]
   }
 ];
 
 // Social media links
-const socialLinks = ["facebook-f", "twitter", "instagram", "youtube"];
+const socialLinks = ["linkedin", "twitter", "facebook-f", "youtube"];
 
 export default Footer;
