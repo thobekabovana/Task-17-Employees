@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState('');
   const navigate = useNavigate();
+  const location = useLocation(); // Use location to get the current path
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-
-  useEffect(() => {
-    // Set the current page based on the URL path
-    setCurrentPage(window.location.pathname);
-  }, [window.location.pathname]); // Runs when the route changes
 
   return (
     <header className="bg-white shadow-md fixed w-full z-10">
@@ -23,7 +18,7 @@ const Navbar = () => {
           onClick={() => navigate('/landing')}
           className="text-2xl font-bold text-gray-800 hover:text-gray-600"
         >
-          Mannings
+          Mannings Thobeka
         </button>
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex space-x-6 items-center">
@@ -39,13 +34,13 @@ const Navbar = () => {
           >
             Contact
           </button>
-          {/* Conditionally render the button based on current page */}
-          {currentPage !== '/list' && (
+          {/* Conditionally render the button based on current path */}
+          {location.pathname !== '/list' && (
             <button
-              onClick={() => navigate(currentPage === '/addForm' ? '/list' : '/addForm')}
+              onClick={() => navigate(location.pathname === '/addForm' ? '/list' : '/addForm')}
               className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700"
             >
-              {currentPage === '/addForm' ? 'List' : 'Get Started'}
+              {location.pathname === '/addForm' ? 'List' : 'Get Started'}
             </button>
           )}
         </nav>
@@ -71,7 +66,10 @@ const Navbar = () => {
           <ul className="space-y-2 px-6 py-4">
             <li>
               <button
-                onClick={() => navigate('/landing')}
+                onClick={() => {
+                  toggleMobileMenu();
+                  navigate('/landing');
+                }}
                 className="block text-gray-700 hover:text-gray-900"
               >
                 Home
@@ -79,20 +77,26 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                onClick={() => navigate('/footer')}
+                onClick={() => {
+                  toggleMobileMenu();
+                  navigate('/footer');
+                }}
                 className="block text-gray-700 hover:text-gray-900"
               >
                 Contact
               </button>
             </li>
-            {/* Conditionally render the button based on current page */}
-            {currentPage !== '/list' && (
+            {/* Conditionally render the button based on current path */}
+            {location.pathname !== '/list' && (
               <li>
                 <button
-                  onClick={() => navigate(currentPage === '/addForm' ? '/list' : '/addForm')}
+                  onClick={() => {
+                    toggleMobileMenu();
+                    navigate(location.pathname === '/addForm' ? '/list' : '/addForm');
+                  }}
                   className="w-full bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700"
                 >
-                  {currentPage === '/addForm' ? 'List' : 'Get Started'}
+                  {location.pathname === '/addForm' ? 'List' : 'Get Started'}
                 </button>
               </li>
             )}
