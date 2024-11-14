@@ -6,6 +6,7 @@ import List from './Pages/List';
 import ViewEmployee from './Pages/View';
 import Landing from './Pages/Landing';
 import Layout from './Components/LayOut';
+import Footer from './Components/Footer';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ function App() {
           <Route index element={<Landing />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/addForm" element={<AddForm />} />
+          <Route path="/footer" element={<Footer />} />
           <Route path="/view/:id" element={<ViewEmployee />} />
           <Route path="/list" element={<List />} />
         </Route>
