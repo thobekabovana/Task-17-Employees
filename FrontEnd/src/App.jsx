@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import AddForm from './Pages/AddForm';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import List from './Pages/List';
 import ViewEmployee from './Pages/View';
 import Landing from './Pages/Landing';

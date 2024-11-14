@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('');
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -17,24 +19,34 @@ const Navbar = () => {
     <header className="bg-white shadow-md fixed w-full z-10">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a href="/landing" className="text-2xl font-bold text-gray-800 hover:text-gray-600">
+        <button
+          onClick={() => navigate('/landing')}
+          className="text-2xl font-bold text-gray-800 hover:text-gray-600"
+        >
           Mannings
-        </a>
+        </button>
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex space-x-6 items-center">
-          <a href="/landing" className="text-gray-700 hover:text-gray-900">
+          <button
+            onClick={() => navigate('/landing')}
+            className="text-gray-700 hover:text-gray-900"
+          >
             Home
-          </a>
-          <a href="/footer" className="text-gray-700 hover:text-gray-900">
+          </button>
+          <button
+            onClick={() => navigate('/footer')}
+            className="text-gray-700 hover:text-gray-900"
+          >
             Contact
-          </a>
+          </button>
           {/* Conditionally render the button based on current page */}
           {currentPage !== '/list' && (
-            <a href={currentPage === '/addForm' ? '/list' : '/addForm'}>
-              <button className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700">
-                {currentPage === '/addForm' ? 'List' : 'Get Started'}
-              </button>
-            </a>
+            <button
+              onClick={() => navigate(currentPage === '/addForm' ? '/list' : '/addForm')}
+              className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700"
+            >
+              {currentPage === '/addForm' ? 'List' : 'Get Started'}
+            </button>
           )}
         </nav>
         {/* Mobile Menu Button */}
@@ -58,23 +70,30 @@ const Navbar = () => {
         <nav className="md:hidden bg-white shadow-md">
           <ul className="space-y-2 px-6 py-4">
             <li>
-              <a href="/landing" className="block text-gray-700 hover:text-gray-900">
+              <button
+                onClick={() => navigate('/landing')}
+                className="block text-gray-700 hover:text-gray-900"
+              >
                 Home
-              </a>
+              </button>
             </li>
             <li>
-              <a href="/footer" className="block text-gray-700 hover:text-gray-900">
+              <button
+                onClick={() => navigate('/footer')}
+                className="block text-gray-700 hover:text-gray-900"
+              >
                 Contact
-              </a>
+              </button>
             </li>
             {/* Conditionally render the button based on current page */}
             {currentPage !== '/list' && (
               <li>
-                <a href={currentPage === '/addForm' ? '/list' : '/addForm'}>
-                  <button className="w-full bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700">
-                    {currentPage === '/addForm' ? 'List' : 'Get Started'}
-                  </button>
-                </a>
+                <button
+                  onClick={() => navigate(currentPage === '/addForm' ? '/list' : '/addForm')}
+                  className="w-full bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700"
+                >
+                  {currentPage === '/addForm' ? 'List' : 'Get Started'}
+                </button>
               </li>
             )}
           </ul>

@@ -1,4 +1,4 @@
-// Import Firebase Admin SDK and Express
+
 const express = require('express');
 const admin = require('./firebase-require');  // Ensure this initializes Firebase Admin SDK correctly
 const db = admin.firestore();  // Initialize Firestore
