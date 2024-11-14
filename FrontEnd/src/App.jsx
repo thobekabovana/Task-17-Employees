@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import AddForm from './Pages/AddForm';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter  } from 'react-router-dom';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import List from './Pages/List';
 import ViewEmployee from './Pages/View';
@@ -13,7 +13,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         {/* Wrap routes that need the layout inside a Layout Route */}
         <Route element={<Layout />}>
@@ -25,7 +25,7 @@ function App() {
           <Route path="/list" element={<List />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
