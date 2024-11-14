@@ -1,15 +1,16 @@
 const admin = require('firebase-admin');
 const serviceAccount = require('./firebase-key.json');
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  storageBucket: "employees-app-153d4.appspot.com"  // Updated storage bucket
-});
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.applicationDefault(), // Use service account if needed
+    credential: admin.credential.cert(serviceAccount),
 
-// Firestore and Storage instances
-const db = admin.firestore();        // Firestore database instance
-const bucket = admin.storage().bucket(); // Firebase Storage instance
+  });
+} else {
+  admin.app(); // If already initialized, use the default app
+}
 
-// Exporting the initialized services
-module.exports = { admin, db, bucket };
+module.exports = admin;
+
 
